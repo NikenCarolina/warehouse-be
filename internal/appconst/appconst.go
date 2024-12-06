@@ -1,8 +1,9 @@
 package appconst
 
 var (
-	MsgListWarehouseOk = "Successfullyy list warehouse"
-	MsgListSupplierOk  = "Successfullyy list supplier"
-	MsgListProductOk   = "Successfullyy list product"
-	MsgItemsInOk       = "Successfullyy insert items in"
+	MsgListWarehouseOk = "Successfully list warehouse"
+	MsgListSupplierOk  = "Successfully list supplier"
+	MsgListProductOk   = "Successfully list product"
+	MsgItemsInOk       = "Successfully insert items in"
+	MsgItemsOutOk      = "Successfully insert items out"
 )

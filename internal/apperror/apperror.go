@@ -6,6 +6,7 @@ var (
 	ErrInternalServerError = newError(http.StatusInternalServerError, "Internal Server Error")
 	ErrNotFound            = newError(http.StatusNotFound, "Not Found")
 	ErrBadRequest          = newError(http.StatusBadRequest, "Bad Request")
+	ErrInvalidAmount       = newError(http.StatusBadRequest, "Dus or Pcs amount is not available")
 )
 
 type Error struct {

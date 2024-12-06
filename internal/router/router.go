@@ -23,6 +23,8 @@ func Init(opts *handler.HandlerOpts, config *config.Config) http.Handler {
 	r.GET("/suppliers", opts.SupplierHandler.ListSupplier)
 	r.GET("/products", opts.ProductHandler.ListProduct)
 	r.POST("/warehouses/:warehouse_id/items/in", opts.WarehouseHandler.ItemsIn)
+	r.POST("/warehouses/:warehouse_id/items/out", opts.WarehouseHandler.ItemsOut)
+	r.GET("/reports", opts.WarehouseHandler.ListReport)
 
 	return r
 }

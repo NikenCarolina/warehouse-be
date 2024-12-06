@@ -58,3 +58,40 @@ func (h *WarehouseHandler) ItemsIn(ctx *gin.Context) {
 	})
 
 }
+
+func (h *WarehouseHandler) ItemsOut(ctx *gin.Context) {
+	var uri dto.WarehouseUri
+	if err := ctx.ShouldBindUri(&uri); err != nil {
+		ctx.Error(apperror.ErrBadRequest)
+		return
+	}
+	var req dto.WarehouseProductInReq
+	if err := ctx.ShouldBindJSON(&req); err != nil {
+		ctx.Error(err)
+		return
+	}
+
+	err := h.useCase.ItemsOut(ctx, req)
+	if err != nil {
+		ctx.Error(err)
+		return
+	}
+
+	ctx.JSON(http.StatusCreated, dto.Response{
+		Message: appconst.MsgItemsOutOk,
+	})
+
+}
+
+func (h *WarehouseHandler) ListReport(ctx *gin.Context) {
+	data, err := h.useCase.GetReport(ctx)
+	if err != nil {
+		ctx.Error(err)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, dto.Response{
+		Message: appconst.MsgListWarehouseOk,
+		Data:    data,
+	})
+}
